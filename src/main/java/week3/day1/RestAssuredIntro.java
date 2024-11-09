@@ -8,6 +8,16 @@ public class RestAssuredIntro {
 	 * It's designed to make API testing more natural and easier to perform. Rest-Assured integrates well with existing 
 	 * Java-based testing frameworks like JUnit and TestNG.
 	 * 
+	 * Java: Rest-Assured, HTTPClient, Karate
+	 * JavaScript: SuperTest (npm package)
+	 * Python: request
+	 * 
+	 * Domain-Specific Language (Gherkin Format) - cucumber
+	 * 
+	 *  Given - Pre-codition for your test action
+	 *  When - Action we need to perform
+	 *  Then - Assert the action is worked or not
+	 * 
 	 * Key Features of Rest-Assured:
 	 * 
 	 * 1.) Readable Syntax: Provides a readable DSL for writing tests, making tests easy to understand and write.
@@ -26,11 +36,14 @@ public class RestAssuredIntro {
 	 * 
 	 * ex: First RestAssured Test Script
 	 * 
-	 *   given()
+	 * URL = "https://api.yourdomain.com/books/{bookId}"
+	 * HTTP Method = GET
+	 * 
+	 * RestAssured.given() // Pre-condition for the API request needed
 	 *     .pathParam("bookId", "12345")                               // Set path parameter
-	 *   .when()
+	 *   .when() // HTTP method action GET/POST/PUT/DELETE - Request Body
 	 *     .get("https://api.yourdomain.com/books/{bookId}")           // Make GET request
-	 *   .then() 
+	 *   .then() // Assertion and Extraction
 	 *     .statusCode(200)                                           // Check status code is 200
 	 *     .and()
 	 *     .statusLine(containsString("OK"))                          // Check status line contains OK
