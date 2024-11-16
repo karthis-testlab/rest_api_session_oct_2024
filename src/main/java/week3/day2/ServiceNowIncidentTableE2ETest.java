@@ -11,8 +11,7 @@ public class ServiceNowIncidentTableE2ETest extends TestNGHooks {
 	public void userShouldAbleToCreateANewIncidentRecord() {
 	   sysId = given()
 		  .header("Content-Type", "application/json")
-		  .pathParam("tableName", tableName)
-		  .log().all()
+		  .pathParam("tableName", tableName)		  
 		.when()
 		  .post("/{tableName}")
 		.then()
@@ -26,8 +25,7 @@ public class ServiceNowIncidentTableE2ETest extends TestNGHooks {
 	public void userShouldAbleToGetASingleIncidentRecord() {
 		given()
 		  .pathParam("tableName", tableName)
-		  .pathParam("sysId", sysId)
-		  .log().all()
+		  .pathParam("sysId", sysId)		  
 		.when()
 		  .get("/{tableName}/{sysId}")
 		.then()
@@ -38,8 +36,7 @@ public class ServiceNowIncidentTableE2ETest extends TestNGHooks {
 	public void userShouldAbleToUpdateAIncidentRecord() {
 		given()
 		  .pathParam("tableName", tableName)
-		  .pathParam("sysId", sysId)
-		  .log().all()
+		  .pathParam("sysId", sysId)		  
 		.when()
 		  .put("/{tableName}/{sysId}")
 		.then()
@@ -50,8 +47,7 @@ public class ServiceNowIncidentTableE2ETest extends TestNGHooks {
 	public void userShouldAbleToDeleteExicistingIncidentRecord() {
 		given()
 		  .pathParam("tableName", tableName)
-		  .pathParam("sysId", sysId)
-		  .log().all()
+		  .pathParam("sysId", sysId)		  
 		.when()
 		  .delete("/{tableName}/{sysId}")
 		.then()
@@ -62,8 +58,7 @@ public class ServiceNowIncidentTableE2ETest extends TestNGHooks {
 	public void userShouldAbleToSeeDeletedRecord() {
 		given()
 		  .pathParam("tableName", tableName)
-		  .pathParam("sysId", sysId)
-		  .log().all()
+		  .pathParam("sysId", sysId)		  
 		.when()
 		  .get("/{tableName}/{sysId}")
 		.then()

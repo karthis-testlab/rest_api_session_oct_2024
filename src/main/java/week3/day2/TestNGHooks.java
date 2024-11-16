@@ -4,11 +4,14 @@ import static io.restassured.RestAssured.authentication;
 import static io.restassured.RestAssured.basePath;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.basic;
+import static io.restassured.RestAssured.filters;
 
 import org.hamcrest.Matchers;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import io.restassured.RestAssured;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.ResponseSpecification;
 
@@ -21,6 +24,11 @@ public class TestNGHooks {
 		baseURI = "https://dev262949.service-now.com";
 		basePath = "/api/now/table";
 		authentication = basic("admin", "vW0eDfd+A0V-");
+	}
+	
+	@AfterMethod
+	public void tearDown() {
+		filters(new ResponseLoggingFilter());
 	}
 	
 	public ResponseSpecification createResponseSpec() {
